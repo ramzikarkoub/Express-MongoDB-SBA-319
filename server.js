@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import authUser from "./routes/auth.routes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -9,7 +8,6 @@ const PORT = process.env.PORT || 5000;
 dotenv.config();
 
 app.use(express.json());
-app.use("/api/auth", authUser);
 
 mongoose.connect(process.env.MONGO_URI);
 mongoose.connection.on("connected", () => {
