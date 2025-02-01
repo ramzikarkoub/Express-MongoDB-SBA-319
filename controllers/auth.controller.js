@@ -8,5 +8,5 @@ export function logout(req, res) {
 }
 
 export function register(req, res) {
-  res.send("Register route");
+  console.log(req.body);
 }
