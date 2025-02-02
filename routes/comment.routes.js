@@ -5,12 +5,14 @@ import {
   updateComment,
   deleteComment,
 } from "../controllers/comment.controller.js";
+import authMiddleware from "../middleware/auth.middleware.js";
 
 const router = express.Router();
 
-router.post("/", createComment);
-router.get("/post/:postId", getCommentsByPost);
-router.put("/:id", updateComment);
-router.delete("/:id", deleteComment);
+// Protect routes that require authentication with authMiddleware
+router.post("/", authMiddleware, createComment);
+router.get("/post/:postId", getCommentsByPost); // public route / no authMiddleware is required
+router.put("/:id", authMiddleware, updateComment);
+router.delete("/:id", authMiddleware, deleteComment);
 
 export default router;
