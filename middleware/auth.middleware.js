@@ -5,7 +5,7 @@ const authMiddleware = async (req, res, next) => {
   try {
     // Get the token from the cookies
     const token = req.cookies.token;
-
+    console.log(token);
     if (!token) {
       return res
         .status(401)
@@ -14,7 +14,7 @@ const authMiddleware = async (req, res, next) => {
 
     // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
+    console.log("Decoded Token:", decoded);
     // Find the user by the ID in the token
     const user = await User.findById(decoded.userId).select("-password");
 

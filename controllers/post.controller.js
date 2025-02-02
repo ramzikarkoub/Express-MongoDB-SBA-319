@@ -2,7 +2,9 @@ import Post from "../models/post.model.js";
 
 export const createPost = async (req, res) => {
   const { title, content } = req.body;
-  const author = req.user.userId;
+  console.log(title, content);
+  const author = req.user._id;
+  console.log(title, author, content);
 
   try {
     const post = await Post.create({ title, content, author });
@@ -14,7 +16,10 @@ export const createPost = async (req, res) => {
 
 export const getPosts = async (req, res) => {
   try {
-    const posts = await Post.find().populate("author", "firstName lastName");
+    const posts = await Post.find().populate(
+      "author",
+      "firstName lastName email"
+    );
     res.json(posts);
   } catch (error) {
     res.status(500).json({ message: "Server error" });
@@ -25,7 +30,7 @@ export const getPostById = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id).populate(
       "author",
-      "firstName lastName"
+      "firstName lastName email"
     );
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
