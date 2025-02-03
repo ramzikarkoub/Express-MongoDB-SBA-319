@@ -76,7 +76,7 @@ npm start
 
 ## API Endpoints
 
-### Authentication
+#### Authentication
 
 - **POST**: /api/auth/register: Register a new user.
 - **POST**: /api/auth/login: Log in a user.
@@ -130,17 +130,17 @@ post: ObjectId (references Post)
 
 ## Middleware
 
-Authentication Middleware
-Protects routes by verifying the JWT token stored in cookies.
-Attaches the authenticated user to the req.user object.
+-Authentication Middleware
+-Protects routes by verifying the JWT token stored in cookies.
+-Attaches the authenticated user to the req.user object.
 
 ---
 
 ## Indexing
 
-To improve query performance, it's highly recommended to create indexes on frequently queried fields in MongoDB.
+-To improve query performance, it's highly recommended to create indexes on frequently queried fields in MongoDB.
 
-For the Post model, creating an index on author and title will help in efficient searching of posts by user or title.
+-For the Post model, creating an index on author and title will help in efficient searching of posts by user or title.
 
 ```bash
 postSchema.index({ author: 1 });
