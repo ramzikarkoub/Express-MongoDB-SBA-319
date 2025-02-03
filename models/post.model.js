@@ -13,5 +13,10 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Index for fast lookup of posts by title
+postSchema.index({ title: "text" });
+// Indexed:  posts are frequently retrieved in descending order (latest first)
+postSchema.index({ createdAt: -1 });
+
 const Post = mongoose.model("Post", postSchema);
 export default Post;
