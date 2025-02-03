@@ -78,23 +78,24 @@ npm start
 
 ### Authentication
 
+- **POST**: /api/auth/register: Register a new user.
+- **POST**: /api/auth/login: Log in a user.
+- **POST**: /api/auth/logout: Log out a user.
+
 #### Posts
 
-POST /api/auth/register: Register a new user.<br>
-POST /api/auth/login: Log in a user.<br>
-POST /api/auth/logout: Log out a user.<br>
-POST /api/posts: Create a new post (requires authentication).<br>
-GET /api/posts: Fetch all posts.<br>
-GET /api/posts/:id: Fetch a single post by ID.<br>
-PUT /api/posts/:id: Update a post (requires authentication).<br>
-DELETE /api/posts/:id: Delete a post (requires authentication).<br>
+- **POST**: /api/posts: Create a new post (requires authentication).
+- **GET**: /api/posts: Fetch all posts.
+- **GET**: /api/posts/:id: Fetch a single post by ID.
+- **PUT**: /api/posts/:id: Update a post (requires authentication).
+- **DELETE**: /api/posts/:id: Delete a post (requires authentication).
 
 #### Comments
 
-POST /api/comments: Create a new comment (requires authentication).
-GET /api/comments/post/:postId: Fetch all comments for a specific post.
-PUT /api/comments/:id: Update a comment (requires authentication).
-DELETE /api/comments/:id: Delete a comment (requires authentication).
+- **POST**: /api/comments: Create a new comment (requires authentication).
+- **GET**: /api/comments/post/:postId: Fetch all comments for a specific post.
+- **PUT**: /api/comments/:id: Update a comment (requires authentication).
+- **DELETE**: /api/comments/:id: Delete a comment (requires authentication).
 
 ---
 
