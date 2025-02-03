@@ -26,7 +26,6 @@ const authMiddleware = async (req, res, next) => {
 
     // Attach the user to the request object
     req.user = user;
-    console.log("uuuuuuuuuser", user);
     next();
   } catch (error) {
     console.error("Auth Middleware Error:", error);
