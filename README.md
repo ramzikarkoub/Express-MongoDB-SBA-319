@@ -80,14 +80,14 @@ npm start
 
 #### Posts
 
-POST /api/auth/register: Register a new user.
-POST /api/auth/login: Log in a user.
-POST /api/auth/logout: Log out a user.
-POST /api/posts: Create a new post (requires authentication).
-GET /api/posts: Fetch all posts.
-GET /api/posts/:id: Fetch a single post by ID.
-PUT /api/posts/:id: Update a post (requires authentication).
-DELETE /api/posts/:id: Delete a post (requires authentication).
+POST /api/auth/register: Register a new user.<br>
+POST /api/auth/login: Log in a user.<br>
+POST /api/auth/logout: Log out a user.<br>
+POST /api/posts: Create a new post (requires authentication).<br>
+GET /api/posts: Fetch all posts.<br>
+GET /api/posts/:id: Fetch a single post by ID.<br>
+PUT /api/posts/:id: Update a post (requires authentication).<br>
+DELETE /api/posts/:id: Delete a post (requires authentication).<br>
 
 #### Comments
 
