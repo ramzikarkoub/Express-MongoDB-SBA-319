@@ -1,4 +1,4 @@
-# Blog - A Blogging Platform API ysing Express.js & mongoDB
+# Blog - A Blogging Platform API - Express.js & mongoDB
 
 Blog is a RESTful API built with **Express.js** and **MongoDB** that allows users to create, read, update, and delete posts and comments. It also includes user authentication and authorization features.
 
@@ -102,22 +102,28 @@ DELETE /api/comments/:id: Delete a comment (requires authentication).
 
 1.  User
 
+```bash
 firstName: String (required)
 lastName: String (required)
 email: String (required, unique)
 password: String (required)
+```
 
 2.  Post
 
+```bash
 title: String (required)
 content: String (required)
 author: ObjectId (references User)
+```
 
 3.  Comment
 
+```bash
 content: String (required)
 author: ObjectId (references User)
 post: ObjectId (references Post)
+```
 
 ---
 
