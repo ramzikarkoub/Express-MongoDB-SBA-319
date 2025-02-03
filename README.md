@@ -72,6 +72,8 @@ npm install
 npm start
 ```
 
+---
+
 ## API Endpoints
 
 ### Authentication
@@ -94,39 +96,48 @@ GET /api/comments/post/:postId: Fetch all comments for a specific post.
 PUT /api/comments/:id: Update a comment (requires authentication).
 DELETE /api/comments/:id: Delete a comment (requires authentication).
 
-#### Models
+---
 
-### User
+## Models
+
+1.  User
 
 firstName: String (required)
 lastName: String (required)
 email: String (required, unique)
 password: String (required)
 
-### Post
+2.  Post
 
 title: String (required)
 content: String (required)
 author: ObjectId (references User)
 
-### Comment
+3.  Comment
 
 content: String (required)
 author: ObjectId (references User)
 post: ObjectId (references Post)
 
-### Middleware
+---
+
+## Middleware
 
 Authentication Middleware
 Protects routes by verifying the JWT token stored in cookies.
 Attaches the authenticated user to the req.user object.
+
+---
 
 ## Indexing
 
 To improve query performance, it's highly recommended to create indexes on frequently queried fields in MongoDB.
 
 For the Post model, creating an index on author and title will help in efficient searching of posts by user or title.
+
+```bash
 postSchema.index({ author: 1 });
 postSchema.index({ title: 1 });
+```
 
 Adding index helps MongoDB optimize queries and improves the overall performance of the application, especially as the database grows.
