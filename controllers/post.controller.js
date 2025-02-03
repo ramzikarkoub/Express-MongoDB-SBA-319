@@ -43,14 +43,15 @@ export const getPostById = async (req, res) => {
 
 export const updatePost = async (req, res) => {
   const { title, content } = req.body;
-
+  console.log(title, content);
   try {
     const post = await Post.findById(req.params.id);
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
-
-    if (post.author.toString() !== req.user.userId) {
+    console.log(post.author.toString());
+    console.log(req.user._id);
+    if (post.author.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: "Not authorized" });
     }
 
@@ -66,16 +67,18 @@ export const updatePost = async (req, res) => {
 
 export const deletePost = async (req, res) => {
   try {
+    console.log(req.params.id);
     const post = await Post.findById(req.params.id);
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
+    console.log(post);
 
-    if (post.author.toString() !== req.user.userId) {
+    if (post.author.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: "Not authorized" });
     }
 
-    await post.remove();
+    await post.deleteOne();
     res.json({ message: "Post deleted" });
   } catch (error) {
     res.status(500).json({ message: "Server error" });
